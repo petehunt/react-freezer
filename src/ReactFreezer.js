@@ -48,6 +48,9 @@ function createFreezableClass(spec) {
 
   var originalGetInitialState = spec.getInitialState;
 
+  spec.mixins = spec.mixins || [];
+  spec.mixins.push(ReactFreezerMixin);
+
   spec.getInitialState = function() {
     var state = spec.freezer.read(getKeyForComponent(this));
     if (!state) {
@@ -62,7 +65,8 @@ var ReactFreezer = {
   Mixin: ReactFreezerMixin,
   Freezers: {
     LocalStorage: LocalStorageFreezer
-  }
+  },
+  createFreezableClass: createFreezableClass
 };
 
 module.exports = ReactFreezer;
