@@ -1,6 +1,6 @@
 {
   "name": "react-freezer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Freeze and thaw entire React apps",
   "main": "lib/ReactFreezer.js",
   "dependencies": {
@@ -14,6 +14,7 @@
     "start": "jsxc --watch src/ lib/",
     "build": "jsxc src/ lib/"
   },
+  "files": ["lib/"],
   "author": "Pete Hunt",
   "license": "Apache 2"
 }
