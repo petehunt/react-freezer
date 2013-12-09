@@ -6,6 +6,7 @@ var debounce = require('debounce');
 
 var LOCAL_STORAGE_DEBOUNCE = 200;
 
+// TODO: make this work for more than one root!
 var LocalStorageFreezer = {
   write: debounce(
     function(key, value) {
@@ -22,7 +23,7 @@ var LocalStorageFreezer = {
 function getKeyForComponent(component) {
   var displayName = component.constructor.displayName || 'ReactCompositeComponent';
   var depth = component._mountDepth;
-  var nodeID = component._rootNodeID;
+  var nodeID = component._rootNodeID.slice(component._rootNodeID.indexOf(']') + 1);
 
   return displayName + ',' + depth + ',' + nodeID;
 }
@@ -53,9 +54,12 @@ function createFreezableClass(spec) {
 
   spec.getInitialState = function() {
     var state = spec.freezer.read(getKeyForComponent(this));
+
     if (!state) {
       return originalGetInitialState.call(this);
     }
+
+    return state;
   };
 
   return React.createClass(spec);
