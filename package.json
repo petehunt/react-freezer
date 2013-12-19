@@ -1,14 +1,18 @@
 {
   "name": "react-freezer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Freeze and thaw entire React apps",
   "main": "lib/ReactFreezer.js",
   "dependencies": {
     "debounce": "~0.0.3",
-    "react": "http://petehunt.net/react/react-0.5.1.tar.gz"
+    "react": "~0.8"
   },
   "devDependencies": {
     "jsxc": "~0.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petehunt/react-freezer"
   },
   "scripts": {
     "start": "jsxc --watch src/ lib/",
