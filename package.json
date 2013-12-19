@@ -1,6 +1,6 @@
 {
   "name": "react-freezer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Freeze and thaw entire React apps",
   "main": "lib/ReactFreezer.js",
   "dependencies": {
